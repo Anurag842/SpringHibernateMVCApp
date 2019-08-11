@@ -7,12 +7,13 @@ import org.hibernate.SessionFactory;
 
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shopping.entity.Product;
 
-
+@Component
 @Repository(value="productDao")
 @Transactional
 public class ProductDaoImpl implements ProductDao {
@@ -24,6 +25,7 @@ public class ProductDaoImpl implements ProductDao {
 		try
 		{
 			Session session=sessionFactory.getCurrentSession();
+			System.out.println(session);
 			session.save(prod);
 			return true;
 		}

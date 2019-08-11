@@ -5,8 +5,10 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class Category {
 	
 	@Id
@@ -40,6 +42,11 @@ public class Category {
 	}
 	public void setcDescription(String cDescription) {
 		this.cDescription = cDescription;
+	}
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + ", cDescription="
+				+ cDescription + ", prod=" + prod + "]";
 	}
 	
 	

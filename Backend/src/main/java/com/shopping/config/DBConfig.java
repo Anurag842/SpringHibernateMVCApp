@@ -12,8 +12,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@Component
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages= {"com.shopping"})
@@ -38,7 +40,7 @@ public class DBConfig {
 		
 		Properties p=new Properties();
 		p.setProperty("hibernate.dialect","org.hibernate.dialect.OracleDialect");
-		p.setProperty("hibernate.hbm2ddl.auto","update");
+		p.setProperty("hibernate.hbm2ddl.auto","create");
 		p.setProperty("hibernate.show_sql", "true");
 		
 		LocalSessionFactoryBuilder sb=new LocalSessionFactoryBuilder(getDataSource());

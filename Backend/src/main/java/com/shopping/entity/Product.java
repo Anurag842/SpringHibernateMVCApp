@@ -4,8 +4,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class Product {
 	
 	@Id
@@ -38,6 +40,11 @@ public class Product {
 	}
 	public void setCat(Category cat) {
 		this.cat = cat;
+	}
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", pDescription=" + pDescription
+				+ ", cat=" + cat + "]";
 	}
 	
 	
