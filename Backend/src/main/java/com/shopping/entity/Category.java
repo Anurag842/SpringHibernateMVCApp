@@ -1,19 +1,32 @@
 package com.shopping.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
 	
 	@Id
-	private String categoryId;
+	private int categoryId;
 	private String categoryName;
 	private String cDescription;
-	public String getCategoryId() {
+	
+	@OneToMany
+	private Set<Product> prod;
+	
+	public Set<Product> getProd() {
+		return prod;
+	}
+	public void setProd(Set<Product> prod) {
+		this.prod = prod;
+	}
+	public int getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getCategoryName() {

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shopping.entity.Category;
-import com.shopping.entity.Product;
+
 
 
 @Repository(value="categoryDao")
@@ -40,25 +40,57 @@ public class CategoryDaoImpl implements CategoryDao {
 	
 
 	public boolean updateCategory(Category cat) {
-		// TODO Auto-generated method stub
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			session.update(cat);
+			
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	public boolean deleteCategory(int categoryId) {
-		// TODO Auto-generated method stub
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Category c=new Category();
+			c.setCategoryId(categoryId);
+			session.delete(c);
+			return true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		return false;
 	}
 
-	public Product getProduct(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public List<Category> getAllCategories() {
 		try {
 			Session session=sessionFactory.getCurrentSession();
 			Query q=session.createQuery("from Category");
 			return q.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
+
+	public Category getCategory(int categoryId) {
+		try
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Category c=session.get(Category.class, categoryId);
+			return c;
 		}
 		catch(Exception e)
 		{
