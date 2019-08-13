@@ -14,7 +14,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context=new FileSystemXmlApplicationContext("C:\\Users\\anurag.dutta\\git\\SpringHibernateMVCApp\\Backend\\src\\main\\java\\spring.xml");
+		ApplicationContext context=new FileSystemXmlApplicationContext("C:\\Users\\hp\\git\\SpringHibernateMVCApp\\Backend\\src\\main\\java\\spring.xml");
 		ProductDao pd=context.getBean("productDao", ProductDao.class);
 		//ProductDao daoObj=context.getBean("ProductDao",ProductDao.class);
 		//Category cat=context.getBean("CategoryDao",CategoryDao.class);
@@ -39,7 +39,7 @@ public class MainClass {
 		
 		
 		
-		pd.updateProduct(p);
+		pd.addProduct(p);
 	}
 
 }
