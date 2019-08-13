@@ -24,9 +24,11 @@ public class ProductDaoImpl implements ProductDao {
 	public boolean addProduct(Product prod) {
 		try
 		{
+			System.out.println("addP");
 			Session session=sessionFactory.getCurrentSession();
+			System.out.println("addP1");
 			System.out.println(session);
-			session.save(prod);
+			session.persist(prod);
 			return true;
 		}
 		catch(Exception e)

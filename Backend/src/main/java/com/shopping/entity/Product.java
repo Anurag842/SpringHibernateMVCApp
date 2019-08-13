@@ -3,6 +3,7 @@ package com.shopping.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ public class Product {
 	private String pDescription;
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
+	//@JoinColumn(name="categoryId")
 	private Category cat;
 	public int getProductId() {
 		return productId;

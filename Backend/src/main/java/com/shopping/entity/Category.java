@@ -2,6 +2,7 @@ package com.shopping.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ public class Category {
 	private String categoryName;
 	private String cDescription;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="cat")
 	private Set<Product> prod;
 	
 	public Set<Product> getProd() {

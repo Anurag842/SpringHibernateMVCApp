@@ -15,6 +15,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.shopping.entity.Category;
+import com.shopping.entity.Product;
+
 @Component
 @Configuration
 @EnableTransactionManagement
@@ -40,12 +43,15 @@ public class DBConfig {
 		
 		Properties p=new Properties();
 		p.setProperty("hibernate.dialect","org.hibernate.dialect.OracleDialect");
-		p.setProperty("hibernate.hbm2ddl.auto","create");
+		p.setProperty("hibernate.hbm2ddl.auto","update");
 		p.setProperty("hibernate.show_sql", "true");
 		
 		LocalSessionFactoryBuilder sb=new LocalSessionFactoryBuilder(getDataSource());
 		sb.addProperties(p);
 		sb.scanPackages("com.shopping.entity");
+		
+		sb.addAnnotatedClass(Product.class);
+		sb.addAnnotatedClass(Category.class);
 		
 		return sb.buildSessionFactory();		
 	}
