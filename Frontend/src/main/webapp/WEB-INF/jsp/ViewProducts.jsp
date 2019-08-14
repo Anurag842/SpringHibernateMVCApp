@@ -28,8 +28,8 @@
 			<tr>
 				<td>${product.productName}</td>
 				<td>${product.pDescription }</td>
-				<td><a href="updateCategory/${product.productId}">Update</a></td>
-				<td><a href="deleteCategory/${product.productId}">Delete</a></td>
+				<td><a href="updateProduct/${product.productId}">Update</a></td>
+				<td><a href="deleteProduct/${product.productId}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -31,6 +31,7 @@
 					<td>Product Desc : </td>
 					<td><f:input type="text" path="pDescription"/>
 				</tr>
+				<c:if test="${pObj.productId eq 0}">
 				<tr>
 					<td>Category : </td>
 					<td>
@@ -43,6 +44,7 @@
 						
 					</td>
 				</tr>
+				</c:if>
 				<tr>
 					<td>
 						<input type="submit" value="${btnLabel}">
