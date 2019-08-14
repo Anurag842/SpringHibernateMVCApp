@@ -1,6 +1,7 @@
 package com.shopping.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,8 +21,16 @@ public class Product {
 	private String pDescription;
 	
 	@ManyToOne(cascade=CascadeType.ALL/*,fetch=FetchType.EAGER*/)
-	//@JoinColumn(name="categoryId")
+	@JoinColumn(name="categoryId",insertable=false,updatable=false)
 	private Category cat;
+	private int categoryId;
+	
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
 	public int getProductId() {
 		return productId;
 	}

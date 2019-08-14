@@ -46,6 +46,14 @@ public class CategoryController {
 		
 	}
 	
+	@RequestMapping(value="viewCategories",method=RequestMethod.GET)
+	public String getAllCategories(ModelMap map)
+	{
+		List<Category> categoryList=categoryDao.getAllCategories();
+		map.addAttribute("categories",categoryList);
+		return "ViewCategories";
+	}
+	
 	
 	@RequestMapping(value="/deleteCategory/{catId}",method=RequestMethod.GET)
 	public String deleteCategory(@PathVariable int catId,ModelMap map){

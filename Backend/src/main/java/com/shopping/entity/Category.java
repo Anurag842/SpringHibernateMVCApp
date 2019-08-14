@@ -1,8 +1,8 @@
 package com.shopping.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,8 +20,8 @@ public class Category {
 	private String categoryName;
 	private String cDescription;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="cat"/*,fetch=FetchType.EAGER*/)
-	private Set<Product> prod;
+	@OneToMany(mappedBy="cat",fetch=FetchType.EAGER)
+	private Set<Product> prod=new HashSet<Product>();
 	
 	public Set<Product> getProd() {
 		return prod;
