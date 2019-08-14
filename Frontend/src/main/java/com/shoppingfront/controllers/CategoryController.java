@@ -18,18 +18,11 @@ import com.shopping.entity.Category;
 public class CategoryController {
 
 	@Autowired
-	private CategoryDao categoryDao;
+	CategoryDao categoryDao;
 	
 	@RequestMapping(value="/categoryForm",method=RequestMethod.GET)
 	public ModelAndView getCategoryForm(){
-		/*ModelAndView is a class which can encapsulate View name to be 
-		 * rendered and data that we want to share from Controller to the
-		 * View*/
-		
-		/*Here CategoryForm  is the View*/
-		ModelAndView mv=new ModelAndView("CategoryForm");
-		
-		//This is the data we want to share
+	ModelAndView mv=new ModelAndView("CategoryForm");
 		mv.addObject("cObj",new Category());
 		mv.addObject("btnLabel","Add Category");
 		mv.addObject("frmLabel","Add Category Form");
@@ -40,30 +33,24 @@ public class CategoryController {
 	public String addCategory(@ModelAttribute Category cObj,ModelMap map){
 		if(cObj.getCategoryId()==0){
 			categoryDao.addCategory(cObj);
-			map.addAttribute("msg","Category Added Succesfully");
+			map.addAttribute("msg","Category Added");
 		}
 		else {
 			categoryDao.updateCategory(cObj);
-			map.addAttribute("msg","Category Updated Succesfully");
+			map.addAttribute("msg","Category Updated");
 		}
 		List<Category> categoryList=categoryDao.getAllCategories();
 		map.addAttribute("categories",categoryList);
 		return "ViewCategories";
 		
-	}
-	
-	@RequestMapping(value="/viewCategories",method=RequestMethod.GET)
-	public String getAllCategories(ModelMap map){
-			List<Category> categoryList=categoryDao.getAllCategories();
-			map.addAttribute("categories",categoryList);
-			return "ViewCategories";
 		
 	}
+	
 	
 	@RequestMapping(value="/deleteCategory/{catId}",method=RequestMethod.GET)
 	public String deleteCategory(@PathVariable int catId,ModelMap map){
 		categoryDao.deleteCategory(catId);
-		map.addAttribute("msg","Category Deleted Succesfully");
+		map.addAttribute("msg","Category Deleted ");
 		List<Category> categoryList=categoryDao.getAllCategories();
 		map.addAttribute("categories",categoryList);
 		return "ViewCategories";

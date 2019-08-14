@@ -13,7 +13,7 @@
 <div align="center">
 
 	<c:if test="${msg ne null}">
-		<h3 style="color:green;font-style:italic;">${msg}</h3>
+		<h3>${msg}</h3>
 	</c:if>
 
 	<h1>View Categories</h1>

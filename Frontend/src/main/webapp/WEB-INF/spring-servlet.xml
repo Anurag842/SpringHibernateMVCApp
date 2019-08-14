@@ -8,7 +8,7 @@
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
    
-   <context:component-scan base-package = "com.shoppingfront" />
+   <context:component-scan base-package = "com.shoppingfront.controllers" />
    <context:component-scan base-package = "com.shopping.config" />
    <context:component-scan base-package = "com.shopping.daos" />
 

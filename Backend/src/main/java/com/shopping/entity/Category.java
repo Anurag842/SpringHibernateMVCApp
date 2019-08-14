@@ -20,7 +20,7 @@ public class Category {
 	private String categoryName;
 	private String cDescription;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="cat",fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="cat"/*,fetch=FetchType.EAGER*/)
 	private Set<Product> prod;
 	
 	public Set<Product> getProd() {

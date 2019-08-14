@@ -19,7 +19,7 @@ public class Product {
 	private String productName;
 	private String pDescription;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.ALL/*,fetch=FetchType.EAGER*/)
 	//@JoinColumn(name="categoryId")
 	private Category cat;
 	public int getProductId() {
