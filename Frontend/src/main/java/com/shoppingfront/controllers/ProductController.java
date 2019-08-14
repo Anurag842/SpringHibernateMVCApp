@@ -48,6 +48,16 @@ public class ProductController {
 		return "ViewProducts";
 	}
 	
+	@RequestMapping(value="/deleteProduct/{prodId}",method=RequestMethod.GET)
+	public String deleteProduct(@PathVariable int prodId,ModelMap map)
+	{
+		productDao.deleteProduct(prodId);
+		map.addAttribute("msg", "Product deleted");
+		map.addAttribute("products", productDao.getAllProducts());
+		
+		return "ViewProducts";
+		}
+	
 	@RequestMapping(value="/updateProduct/{prodId}",method=RequestMethod.GET)
 	public String updateProductForm(@PathVariable int prodId,ModelMap map)
 	{
